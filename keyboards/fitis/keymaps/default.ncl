@@ -66,7 +66,7 @@ let virtual_keys' =
     combo.make cto (std.array.split_at 1 c).right)
 in
 
-let physical_key_count = 28 in
+let physical_key_count = 29 in
 let virtual_key_count = std.array.length virtual_keys' in
 let key_count = physical_key_count + virtual_key_count in
 
