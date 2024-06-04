@@ -5,13 +5,13 @@ let { zilpzalp_usb_pid, .. } = import "lib/example.ncl" in
 {
   mcu = CH552T,
   matrix = {
-    cols = [34, 35, 33, 13, 12, 15, 16, 14, 32],
+    cols = [34, 35, 33, 13, 12, 15, 16, 14, 32, 10],
     rows = [11, 31, 30]
   },
   usb_dev = {
     vendor_id = 43962, # 0xABBA
-    product_id = fitis_usb_pid,
-    product_ver = 256, # 0x0100
+    product_id = 5664,
+    product_ver = 1.0, # 0x0100
   },
   keys =
     let M = ColToRowKey in

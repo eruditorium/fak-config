@@ -21,23 +21,23 @@ let combos = [
 	# LEFT
 	[kc.TAB,   0,  1],
 	[kc.ESC,  19, 20],
-	[kc.LCBR,  0,  9],
+	[ks.LCBR,  0,  9],
 	[kc.LBRC,  1, 10],
-	[kc.LPRN,  2, 11],
+	[ks.LPRN,  2, 11],
 	[kc.V   , 20, 21], 
 	[kc.Q   ,  1,  2], 
 	# RIGHT
 	[kc.BSPC,  6,  7],
-	[kc.RPRN,  5, 14],
+	[ks.RPRN,  5, 14],
 	[kc.RBRC,  6, 15],
-	[kc.RCBR,  7, 16]
+	[ks.RCBR,  7, 16]
 	] in
 	
 let sub_layers = {
   SYM = [
              kc.SLSH, kc.EQL,  kc.BSLS, kc.GRV,         ks.PLUS, kc.N7,   kc.N8,  kc.N9,
-    kc.AMPR, kc.EXLM, kc.PLUS, kc.UNDS, kc.HASH,        kc.MINS, kc.N4,   kc.N5,  kc.N6,  kc.N0,
-    kc.PIPE, kc.QUES, kc.MINS, kc.ASTR,                          kc.N1,   kc.N2,  kc.N3,  kc.DOT,
+    ks.AMPR, ks.EXLM, ks.PLUS, ks.UNDS, ks.HASH,        kc.MINS, kc.N4,   kc.N5,  kc.N6,  kc.N0,
+    ks.PIPE, ks.QUES, kc.MINS, ks.ASTR,                          kc.N1,   kc.N2,  kc.N3,  kc.DOT,
                                XXXX,    XXXX,           XXXX, 
   ],
   NAV = [
@@ -90,12 +90,12 @@ let make_hrm = fun key_idx =>
     let md = hold.reg.mod
   in [
     md.lsft, md.lgui, md.lalt, md.lctl, md.ralt,
-    md.ralt, md.rclt, md.lalt, md.rgui, md.rsft,
+    md.ralt, md.rctl, md.lalt, md.rgui, md.rsft,
   ] in
 
   let hrm_key_indices = [
-     8,  9, 10, 11, 12
-    13, 14, 15, 16, 17
+     8,  9, 10, 11, 12,
+    13, 14, 15, 16, 17,
   ] in
 
   let htb_hrm_base = {
@@ -136,7 +136,7 @@ let virtual_base = combos |> std.array.map std.array.first in
 let virtual_filler = combos |> std.array.map (fun c => XXXX) in
 
 let layer_default =
-  let base_keycodes = layout.APTMAK
+  let base_keycodes = layouts.APTMAK
     |> std.string.characters
     |> util.array.enumerate
     |> std.array.map (fun { index, value } => tap.reg.kc."%{value}" & make_hrm index)
@@ -150,7 +150,7 @@ let layer_default =
       key_interrupts = std.array.replicate key_count ki.hr,
     } in
 
-    layout.thumbs
+    layouts.thumbs
     |> util.array.enumerate
     |> std.array.map (fun { index, value } =>
         value 
@@ -165,7 +165,7 @@ in
   virtual_keys = virtual_keys',
   layers = [layer_default] @ (
     ["NAV", "SYM", "SYM"]
-    |> std.array.map (fun name => layout.layers."%{name}")
+    |> std.array.map (fun name => layouts.layers."%{name}")
     |> std.array.map (fun layer => layer @ virtual_filler)
   )
 }
