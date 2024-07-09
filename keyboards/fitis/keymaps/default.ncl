@@ -5,6 +5,8 @@ let kc = tap.reg.kc in
 let ks = tap.reg.ks in
 let md = hold.reg.mod in
 let tm = tap.reg.mod in
+let lt = hold.reg.layer in
+let fak = tap.custom.fak in
 let me = tap.custom.media in
 let XXXX = tap.none & hold.none in
 
@@ -16,7 +18,7 @@ let ki = {
   xx = { decision = 'none },
 } in
 
-let cto = 25 in
+let cto = 50 in
 let virtual_keys' = [
 	# LEFT
 	combo.make cto [ 0,  1], # TAB,
@@ -30,7 +32,8 @@ let virtual_keys' = [
 	combo.make cto [ 6,  7], # BSPC
 	combo.make cto [ 5, 14], # RPRN
 	combo.make cto [ 6, 15], # RBRC
-	combo.make cto [ 7, 16]  # RCBR
+	combo.make cto [ 7, 16], # RCBR
+  combo.make cto [23, 24]  # ENT
 	] in
 	
 let virtual_key_count = std.array.length virtual_keys' in
@@ -43,7 +46,7 @@ let layouts = {
 
 let make_hrm = fun key_idx =>
   let htb_hrm_base = fun eager => {
-    timeout_ms = 150,
+    timeout_ms = 180,
     # quick_tap_ms = 100,
     # quick_tap_interrupt_ms = 500,
     # global_quick_tap_ms = 80,
@@ -66,17 +69,17 @@ let make_hrm = fun key_idx =>
     key_interrupts = [
              ki.hr, ki.hr, ki.hr, ki.hr,    ki.tp, ki.tp, ki.tp, ki.tp,       
       ki.hr, ki.hr, ki.hr, ki.hr, ki.hr,    ki.tr, ki.tr, ki.tr, ki.tr, ki.tr,
-      ki.hr, ki.hr, ki.hr, ki.hr,                  ki.tp, ki.tp, ki.tp, hi.tp
+      ki.hr, ki.hr, ki.hr, ki.hr,                  ki.tp, ki.tp, ki.tp, ki.tp,
                            ki.hr, ki.hr,    ki.hr
     ] @ virtual_interrupts
   } in
 
   let hrm_mods = [
-    mdh.lsft, mdh.lgui, mdh.lalt, mdh.lctl, mdh.ralt,
-    mdh.ralt, mdh.rctl, mdh.lalt, mdh.rgui, mdh.rsft,
+    md.lsft, md.lgui, md.lalt, md.lctl, md.ralt,
+    md.ralt, md.rctl, md.lalt, md.rgui, md.rsft,
   ] in
 
-  let hrm_key_indices = [9, 10, 11, 12, 13, 14, 15, 16, 17, 18] in
+  let hrm_key_indices = [8, 9, 10, 11, 12, 13, 14, 15, 16, 17] in
 
   if std.array.elem key_idx hrm_key_indices then
     let mod_idx = util.array.index_of key_idx hrm_key_indices in
@@ -85,7 +88,7 @@ let make_hrm = fun key_idx =>
 
     mod & hold.reg.behavior (
       (if side == 'left then htb_hrm_left else htb_hrm_right)
-      (if mod == mdh.lgui || mod == mdh.lalt then 'none else 'hold)
+      (if mod == md.lgui || mod == md.lalt || mod == md.rgui || mod == md.ralt then 'none else 'hold)
     )
   else
     {}
@@ -102,14 +105,14 @@ in
 
 let thumb = fun thumb_idx =>
   let thumb_behavior = {
-    timeout_ms = 150,
+    timeout_ms = 180,
     timeout_decision = 'hold,
     key_interrupts = std.array.replicate key_count ki.hr,
   } in
   [
-    kc.QUOT & lt 1 & hold.reg.behavior thumb_behavior,
     kc.SPC  & lt 2 & hold.reg.behavior thumb_behavior,
-    kc.E    & lt 2f & hold.reg.behavior thumb_behavior, 
+    kc.QUOT & lt 1 & hold.reg.behavior thumb_behavior,
+    kc.E    & lt 2 & hold.reg.behavior thumb_behavior, 
   ]
   |> std.array.at thumb_idx
 in
@@ -122,8 +125,8 @@ let cu = {
 } in
 
 let combos_base = [
-  kc.TAB, kc.ESC, kc.LCBR, ks.LBRC, ks.LPRN, kc.V, kc.Q,
-  kc.BSPC, ks.RPRN, ks.RBRC, kc.RCBR
+  kc.TAB, kc.ESC, ks.LCBR, kc.LBRC, ks.LPRN, kc.V, kc.Q,
+  kc.BSPC, ks.RPRN, kc.RBRC, ks.RCBR, kc.ENT
 ] in
 
 {
@@ -134,7 +137,7 @@ let combos_base = [
     [
                base 0,  base 1,  base 2,  base 3,  base 4,  base 5,  base 6,  base 7,
       base 8,  base 9,  base 10, base 11, base 12, base 13, base 14, base 15, base 16, base 17,
-      base 18, base 19, base 20, base 21,                   base 22, base 23, base.24, base.25,
+      base 18, base 19, base 20, base 21,                   base 22, base 23, base 24, base 25,
                                  thumb 0, thumb 1, thumb 2,
     ] @ combos_base,
     # SYM NUM
@@ -147,7 +150,7 @@ let combos_base = [
     # NAV
     [
                kc.F9,   kc.F10,  kc.F11,  kc.F12,         XXXX,    kc.PGDN, kc.UP,   kc.PGUP,
-      kc.F5,   kc.F6,   kc.F7,   kc.F8 ,  XXXX,           kc.HOME, kc.LEFT, kc.DOWN, kc.RGHT,  kc.END,
+      kc.F5,   kc.F6,   kc.F7,   kc.F8 ,  fak.BOOT,       kc.HOME, kc.LEFT, kc.DOWN, kc.RGHT,  kc.END,
       kc.F1,   kc.F2,   kc.F3,   kc.F4,                            XXXX,    XXXX,    XXXX,  XXXX,
                                  XXXX,    XXXX,            XXXX, 
     ] @ combos_base,
