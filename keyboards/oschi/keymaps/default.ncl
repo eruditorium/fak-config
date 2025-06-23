@@ -44,6 +44,7 @@ let key_count = 38 + virtual_key_count in
 let layouts = {
   COLEMAK = "QWFPGJLUY'ARSTDHNEIOZXCVBKM,.;",
   APTMAK  = "QWFP  LUY'RSTHBJNAIOZCGDKXM,.;",  
+  QWERTY  = "QWERTYUIOPASDFGHJKL;ZXCVBNM,./",
 } in
 
 let make_hrm = fun key_idx =>
@@ -134,7 +135,7 @@ let combos_base = [
 {
   virtual_keys = virtual_keys',
   layers = [
-    let base = fun key_idx => (alphas layouts.COLEMAK) |> std.array.at key_idx in
+    let base = fun key_idx => (alphas layouts.QWERTY) |> std.array.at key_idx in
     # ALPHAS
     [ 
       base 0,  base 1,  base 2,  base 3,  base 4,     base 5,  base 6,  base 7,  base 8,  base 9,
