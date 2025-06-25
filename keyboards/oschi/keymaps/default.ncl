@@ -78,11 +78,11 @@ let make_hrm = fun key_idx =>
   } in
 
   let hrm_mods = [
-    md.lsft, md.lgui, md.lalt, md.lctl, md.ralt,
-    md.ralt, md.rctl, md.lalt, md.rgui, md.rsft,
+    md.lctl, md.lgui, md.lalt, md.lsft, 
+    md.rsft, md.ralt, md.rctl, md.rgui, 
   ] in
 
-  let hrm_key_indices = [10, 11, 12, 13, 14, 15, 16, 17, 18, 19] in
+  let hrm_key_indices = [20, 21, 22, 13, 16, 27, 28, 29] in
 
   if std.array.elem key_idx hrm_key_indices then
     let mod_idx = util.array.index_of key_idx hrm_key_indices in
@@ -113,8 +113,8 @@ let thumb = fun thumb_idx =>
     key_interrupts = std.array.replicate key_count ki.hr,
   } in
   [
-    kc.SPC  & lt 1 & hold.reg.behavior thumb_behavior,
-    kc.ENT  & lt 2 & hold.reg.behavior thumb_behavior, 
+    kc.ENT  & lt 1 & hold.reg.behavior thumb_behavior,
+    kc.SPC  & lt 2 & hold.reg.behavior thumb_behavior, 
     kc.E  & lt 2 & hold.reg.behavior thumb_behavior, 
   ]
   |> std.array.at thumb_idx
@@ -141,21 +141,21 @@ let combos_base = [
       base 0,  base 1,  base 2,  base 3,  base 4,     base 5,  base 6,  base 7,  base 8,  base 9,
       base 10, base 11, base 12, base 13, base 14,    base 15, base 16, base 17, base 18, base 19,
       base 20, base 21, base 22, base 23, base 24,    base 25, base 26, base 27, base 28, base 29,
-      media.VOLD, media.MUTE, media.VOLU, thumb 0,    thumb 1, media.PREV, media.PLAY, media.NEXT
+                  kc.lctl, kc.bspc, lt.1, thumb 0,    thumb 1, kc.ralt, kc.del,  kc.rshft
     ] @ combos_base,
     # SYM NUM
     [
       kc.F9,   kc.F10,  kc.F11,  kc.F12,  tl.DF 3,        ks.PLUS, kc.N7,   kc.N8,  kc.N9,  XXXX,
       kc.F5,   kc.F6,   kc.F7,   kc.F8 ,  fak.BOOT,       kc.MINS, kc.N4,   kc.N5,  kc.N6,  kc.N0,
       kc.F1,   kc.F2,   kc.F3,   kc.F4,   XXXX,           XXXX,     kc.N1,   kc.N2,  kc.N3,  kc.DOT,
-      XXXX,    XXXX,   XXXX,              XXXX,           XXXX,            XXXX,   XXXX,    XXXX
+      kc.lctl, kc.bspc, lt.1, thumb 0,    thumb 1, kc.ralt, kc.del,  kc.rshft
     ] @ combos_base,
     # NAV
     [
       XXXX,    kc.SLSH, kc.EQL,  kc.BSLS, XXXX,          XXXX,    kc.PGDN, kc.UP,   kc.PGUP,  XXXX,
       ks.AMPR, ks.EXLM, ks.PLUS, ks.UNDS, kc.GRV,        kc.HOME, kc.LEFT, kc.DOWN, kc.RGHT,  kc.END,
       ks.PIPE, ks.QUES, kc.MINS, ks.ASTR, ks.HASH,       XXXX,    XXXX,    XXXX,  XXXX, XXXX,
-       XXXX,    XXXX,   XXXX,              XXXX,           XXXX,            XXXX,   XXXX,    XXXX
+       kc.lctl, kc.bspc, lt.1, thumb 0,    thumb 1, kc.ralt, kc.del,  kc.rshft
     ] @ combos_base,
     # ALPHAS APTMAK
     let base_a = fun key_idx => (alphas layouts.APTMAK) |> std.array.at key_idx in
