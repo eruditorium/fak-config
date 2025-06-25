@@ -156,14 +156,14 @@ let combos_base = [
     ] @ combos_base,
     # SYM NUM
     [
-      kc.F9,   kc.F10,  kc.F11,  kc.F12,  tl.DF 3,        ks.PLUS, kc.N7,   kc.N8,  kc.N9,  XXXX,
-      kc.F5,   kc.F6,   kc.F7,   kc.F8 ,  fak.BOOT,       kc.MINS, kc.N4,   kc.N5,  kc.N6,  kc.N0,
-      kc.F1,   kc.F2,   kc.F3,   kc.F4,   XXXX,           XXXX,     kc.N1,   kc.N2,  kc.N3,  kc.DOT,
-      md.lctl, kc.BSPC, lt 1, thumb 0,    thumb 1, md.ralt, kc.DEL,  md.rsft
+      kc.INS,   kc.DEL,  kc.UP,  kc.HOME,  kc.PGUP,       kc.PAST, kc.N7,   kc.N8,  kc.N9,  kc.PLUS,
+      kc.TAB,   kc.RGHT, kc.DOWN,kc.LEFT,  fak.BOOT,      kc.PSLS, kc.N4,   kc.N5,  kc.N6,  kc.MINS,
+      tl.DF 3,  XXXX,    XXXX,   kc.END,   kc.PGDN,       kc.DOT,  kc.N1,   kc.N2,  kc.N3,  kc.EQL,
+                      md.lctl, kc.BSPC, lt 1, thumb 0,    thumb 1, kc.N0,   kc.DEL, md.rsft
     ] @ combos_base,
     # NAV
     [
-      XXXX,    kc.SLSH, kc.EQL,  kc.BSLS, XXXX,          XXXX,    kc.PGDN, kc.UP,   kc.PGUP,  XXXX,
+      ks.N1,   ks.N2,   ks.N3,   ks.N4,   ks.N5,          XXXX,    kc.PGDN, kc.UP,   kc.PGUP,  XXXX,
       ks.AMPR, ks.EXLM, ks.PLUS, ks.UNDS, kc.GRV,        kc.HOME, kc.LEFT, kc.DOWN, kc.RGHT,  kc.END,
       ks.PIPE, ks.QUES, kc.MINS, ks.ASTR, ks.HASH,       XXXX,    XXXX,    XXXX,  XXXX, XXXX,
        md.lctl, kc.BSPC, lt 1, thumb 0,    thumb 1, md.ralt, kc.DEL,  md.rsft
