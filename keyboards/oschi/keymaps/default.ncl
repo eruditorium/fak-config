@@ -73,8 +73,8 @@ let make_hrm = fun key_idx =>
   let htb_hrm_left = fun eager => htb_hrm_base eager & {
     key_interrupts = [
       ki.tp, ki.tp, ki.tp, ki.tp, ki.tp,    ki.hr, ki.hr, ki.hr, ki.hr, ki.hr,
-      ki.tr, ki.tr, ki.tr, ki.tr, ki.tr,    ki.hr, ki.hr, ki.hr, ki.hr, ki.hr,
-      ki.tp, ki.tp, ki.tp, ki.tp, ki.tp,    ki.hr, ki.hr, ki.hr, ki.hr, ki.hr,
+      ki.tp, ki.tp, ki.tp, ki.tr, ki.tp,    ki.hr, ki.hr, ki.hr, ki.hr, ki.hr,
+      ki.tr, ki.tr, ki.tr, ki.tp, ki.tp,    ki.hr, ki.hr, ki.hr, ki.hr, ki.hr,
       ki.hr, ki.hr, ki.hr,        ki.hr,    ki.hr,        ki.hr, ki.hr, ki.hr
     ] @ virtual_interrupts
   } in
@@ -82,8 +82,8 @@ let make_hrm = fun key_idx =>
   let htb_hrm_right = fun eager => htb_hrm_base eager & {
     key_interrupts = [
       ki.hr, ki.hr, ki.hr, ki.hr, ki.hr,    ki.tp, ki.tp, ki.tp, ki.tp, ki.tp,       
-      ki.hr, ki.hr, ki.hr, ki.hr, ki.hr,    ki.tr, ki.tr, ki.tr, ki.tr, ki.tr,
-      ki.hr, ki.hr, ki.hr, ki.hr, ki.hr,    ki.tp, ki.tp, ki.tp, ki.tp, ki.tp,
+      ki.hr, ki.hr, ki.hr, ki.hr, ki.hr,    ki.tp, ki.tr, ki.tp, ki.tp, ki.tp,
+      ki.hr, ki.hr, ki.hr, ki.hr, ki.hr,    ki.tp, ki.tp, ki.tr, ki.tr, ki.tr,
       ki.hr, ki.hr, ki.hr,        ki.hr,    ki.hr,        ki.hr, ki.hr, ki.hr
     ] @ virtual_interrupts
   } in
@@ -136,6 +136,14 @@ let cu = {
   COPY = md.lctl & kc.INS, # md.lctl & kc.C,
   PSTE = md.lsft & kc.INS, # md.lctl & kc.V,
   CUT  = md.lctl & kc.X,
+  AE   = md.ralt & kc.Q,
+  UE   = md.ralt & kc.Y,
+  OE   = md.ralt & kc.P, 
+  SS   = md.ralt & kc.S,
+  DEG  = md.ralt & md.rsft & kc.COMMA,
+  MU   = md.ralt & kc.M,
+  H2   = md.ralt & kc.N2,
+  H3   = md.ralt & kc.N3,
 } in
 
 let combos_base = [
@@ -163,9 +171,9 @@ let combos_base = [
     ] @ combos_base,
     # NAV
     [
-      ks.N1,   ks.N2,   ks.N3,   ks.N4,   ks.N5,          XXXX,    kc.PGDN, kc.UP,   kc.PGUP,  XXXX,
-      ks.AMPR, ks.EXLM, ks.PLUS, ks.UNDS, kc.GRV,        kc.HOME, kc.LEFT, kc.DOWN, kc.RGHT,  kc.END,
-      ks.PIPE, ks.QUES, kc.MINS, ks.ASTR, ks.HASH,       XXXX,    XXXX,    XXXX,  XXXX, XXXX,
+      ks.EXLM, ks.AT,   ks.HASH, ks.DLR,  ks.PERC,       ks.CIRC,  cu.UE,   ks.AMPR,cu.OE,  cu.DE,
+      cu.AE,   cu.SS,   XXXX,    XXXX,    XXXX,          kc.RGHT,  kc.DOWN, kc.UP,  kc.LEFT,cu.MU,
+      XXXX,    XXXX,    XXXX,    XXXX,    XXXX,          kc.BSLS,  ks.BSLS, cu.H2,  cu.H3,  XXXX,
        md.lctl, kc.BSPC, lt 1, thumb 0,    thumb 1, md.ralt, kc.DEL,  md.rsft
     ] @ combos_base,
     # ALPHAS APTMAK
