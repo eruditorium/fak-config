@@ -156,7 +156,7 @@ let combos_base = [
     ] @ combos_base,
     # SYM NUM
     [
-      kc.INS,   kc.DEL,  kc.UP,  kc.HOME,  kc.PGUP,       kc.PAST, kc.N7,   kc.N8,  kc.N9,  kc.PLUS,
+      kc.INS,   kc.DEL,  kc.UP,  kc.HOME,  kc.PGUP,       kc.PAST, kc.N7,   kc.N8,  kc.N9,  kc.PPLS,
       kc.TAB,   kc.RGHT, kc.DOWN,kc.LEFT,  fak.BOOT,      kc.PSLS, kc.N4,   kc.N5,  kc.N6,  kc.MINS,
       tl.DF 3,  XXXX,    XXXX,   kc.END,   kc.PGDN,       kc.DOT,  kc.N1,   kc.N2,  kc.N3,  kc.EQL,
                       md.lctl, kc.BSPC, lt 1, thumb 0,    thumb 1, kc.N0,   kc.DEL, md.rsft
