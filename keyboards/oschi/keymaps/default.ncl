@@ -12,17 +12,6 @@ let media = tap.custom.media in
 let me = tap.custom.media in
 let XXXX = tap.none & hold.none in
 
-let mod_ = fun K => let K = fun mod => K { mods."%{mod}" = true } in {
-  lctl = K "left_ctrl",
-  lsft = K "left_shift",
-  lalt = K "left_alt",
-  lgui = K "left_gui",
-  rctl = K "right_ctrl",
-  rsft = K "right_shift",
-  ralt = K "right_alt",
-  rgui = K "right_gui",
-} in
-
 let ki = {
   hp = { decision = 'hold, trigger_on = 'press },
   tp = { decision = 'tap, trigger_on = 'press },
