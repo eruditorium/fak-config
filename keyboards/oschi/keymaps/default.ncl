@@ -36,7 +36,7 @@ let virtual_keys' = [
 	combo.make cto [15, 16], # RBRC ]
 	combo.make cto [ 5,  6], # RCBR }
 	combo.make cto [16, 17], # _
-	combo.make cto [26, 27], # '
+	combo.make cto [26, 27]  # '
 	] in
 	
 let virtual_key_count = std.array.length virtual_keys' in
@@ -51,7 +51,7 @@ let layouts = {
 let make_hrm = fun key_idx =>
   let htb_hrm_base = fun eager => {
     timeout_ms = 180,
-    # quick_tap_ms = 100,
+    quick_tap_ms = 100,
     # quick_tap_interrupt_ms = 500,
     # global_quick_tap_ms = 80,
     eager_decision = eager,
