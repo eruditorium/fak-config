@@ -72,8 +72,8 @@ let make_hrm = fun key_idx =>
   let htb_hrm_right = fun eager => htb_hrm_base eager & {
     key_interrupts = [
       ki.hr, ki.hr, ki.hr, ki.hr, ki.hr,    ki.tp, ki.tp, ki.tp, ki.tp, ki.tp,       
-      ki.hr, ki.hr, ki.hr, ki.hr, ki.hr,    ki.tp, ki.tr, ki.tp, ki.tp, ki.tp,
-      ki.hr, ki.hr, ki.hr, ki.hr, ki.hr,    ki.tp, ki.tp, ki.tr, ki.tr, ki.tr,
+      ki.hr, ki.hr, ki.hr, ki.hr, ki.hr,    ki.tp, ki.tr, ki.tr, ki.tr, ki.tr,
+      ki.hr, ki.hr, ki.hr, ki.hr, ki.hr,    ki.tp, ki.tp, ki.tp, ki.tp, ki.tp,
       ki.hr, ki.hr, ki.hr,        ki.hr,    ki.hr,        ki.hr, ki.hr, ki.hr
     ] @ virtual_interrupts
   } in
