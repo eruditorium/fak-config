@@ -29,14 +29,14 @@ let virtual_keys' = [
 	combo.make cto [13, 14], # LBRC [
 	combo.make cto [23, 24], # LPRN (
 	combo.make cto [12, 13], # -   
-	combo.make cto [22, 23], # "   
+	combo.make cto [22, 23], # DQT
     #  RIGHT
 	combo.make cto [18, 19], # =
 	combo.make cto [25, 26], # RPRN )
 	combo.make cto [15, 16], # RBRC ]
 	combo.make cto [ 5,  6], # RCBR }
 	combo.make cto [16, 17], # _
-	combo.make cto [26, 27]  # '
+	combo.make cto [26, 27]  # QT
 	] in
 	
 let virtual_key_count = std.array.length virtual_keys' in
