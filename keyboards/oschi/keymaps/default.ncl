@@ -139,7 +139,7 @@ let cu = {
 
 
 let combos_base = [
-  kc.TAB, kc.ESC, ks.LCBR, kc.LBRC, ks.LPRN, kc.PMNS, ks.DQUO,
+  kc.TAB, kc.ESC, ks.LCBR, kc.LBRC, ks.LPRN, kc.MINS, ks.DQUO,
   kc.EQL, ks.RPRN, kc.RBRC, ks.RCBR, ks.UNDS, kc.QUOTE
 ] in
 
