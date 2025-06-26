@@ -162,10 +162,10 @@ let combos_base = [
     ] @ combos_base,
     # NAV
     [
-      XXXX,    kc.SLSH, kc.EQL,  kc.BSLS, XXXX,          XXXX,    kc.PGDN, kc.UP,   kc.PGUP,  XXXX,
-      ks.AMPR, ks.EXLM, ks.PLUS, ks.UNDS, kc.GRV,        kc.HOME, kc.LEFT, kc.DOWN, kc.RGHT,  kc.END,
-      ks.PIPE, ks.QUES, kc.MINS, ks.ASTR, ks.HASH,       XXXX,    XXXX,    XXXX,  XXXX, XXXX,
-       md.lctl, kc.BSPC, lt 1, thumb 0,    thumb 1, md.ralt, kc.DEL,  md.rsft
+      ks.EXLM, ks.AT,   ks.HASH, ks.DLR,  ks.PERC,       ks.CIRC,  cu.UE,   ks.AMPR,cu.OE,  cu.DEG,
+      cu.AE,   cu.SS,   XXXX,    XXXX,    XXXX,          kc.RGHT,  kc.DOWN, kc.UP,  kc.LEFT,cu.MU,
+      XXXX,    XXXX,    XXXX,    XXXX,    XXXX,          kc.BSLS,  ks.PIPE, cu.H2,  cu.H3,  XXXX,
+                  md.lctl, lt 1, kc.BSPC, thumb 0,       thumb 1, md.ralt, kc.DEL,  md.rsft
     ] @ combos_base,
     # ALPHAS APTMAK
     let base_a = fun key_idx => (alphas layouts.APTMAK) |> std.array.at key_idx in
