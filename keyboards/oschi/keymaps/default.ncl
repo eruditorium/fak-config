@@ -151,21 +151,21 @@ let combos_base = [
       base 0,  base 1,  base 2,  base 3,  base 4,     base 5,  base 6,  base 7,  base 8,  base 9,
       base 10, base 11, base 12, base 13, base 14,    base 15, base 16, base 17, base 18, base 19,
       base 20, base 21, base 22, base 23, base 24,    base 25, base 26, base 27, base 28, base 29,
-                  md.lctl, lt 1, kc.BSPC, thumb 0,    thumb 1, kc.DEL,  md.ralt, md.rsft
+                  tm.lctl, lt 1, kc.BSPC, thumb 0,    thumb 1, kc.DEL,  tm.ralt, tm.rsft
     ] @ combos_base,
     # SYM NUM
     [
-      kc.INS,   kc.DEL,  kc.UP,  kc.HOME,  kc.PGUP,       ks.ASTR, kc.N7,   kc.N8,  kc.N9,  ks.PLUS,
-      kc.TAB,   kc.RGHT, kc.DOWN,kc.LEFT,  fak.BOOT,      kc.SLSH, kc.N4,   kc.N5,  kc.N6,  kc.MINS,
-      tl.DF 3,  XXXX,    XXXX,   kc.END,   kc.PGDN,       kc.DOT,  kc.N1,   kc.N2,  kc.N3,  kc.EQL,
-                      md.lctl, lt 1, kc.BSPC, thumb 0,    thumb 1, kc.N0,   kc.DEL, md.rsft
+      kc.F9,   kc.F10,  kc.F11,  kc.F12,  tl.DF 3,        ks.PLUS, kc.N7,   kc.N8,  kc.N9,  XXXX,
+      kc.F5,   kc.F6,   kc.F7,   kc.F8 ,  fak.BOOT,       kc.MINS, kc.N4,   kc.N5,  kc.N6,  kc.N0,
+      kc.F1,   kc.F2,   kc.F3,   kc.F4,   XXXX,           XXXX,     kc.N1,   kc.N2,  kc.N3,  kc.DOT,
+      tm.lctl, kc.BSPC, lt 1, thumb 0,    thumb 1, tm.ralt, kc.DEL,  tm.rsft
     ] @ combos_base,
     # NAV
     [
-      ks.EXLM, ks.AT,   ks.HASH, ks.DLR,  ks.PERC,       ks.CIRC,  cu.UE,   ks.AMPR,cu.OE,  cu.DEG
+      XXXX,    kc.SLSH, kc.EQL,  kc.BSLS, XXXX,          XXXX,    kc.PGDN, kc.UP,   kc.PGUP,  XXXX,
       ks.AMPR, ks.EXLM, ks.PLUS, ks.UNDS, kc.GRV,        kc.HOME, kc.LEFT, kc.DOWN, kc.RGHT,  kc.END,
       ks.PIPE, ks.QUES, kc.MINS, ks.ASTR, ks.HASH,       XXXX,    XXXX,    XXXX,  XXXX, XXXX,
-       md.lctl, kc.BSPC, lt 1, thumb 0,    thumb 1, md.ralt, kc.DEL,  md.rsft
+       tm.lctl, kc.BSPC, lt 1, thumb 0,    thumb 1, tm.ralt, kc.DEL,  tm.rsft
     ] @ combos_base,
     # ALPHAS APTMAK
     let base_a = fun key_idx => (alphas layouts.APTMAK) |> std.array.at key_idx in
