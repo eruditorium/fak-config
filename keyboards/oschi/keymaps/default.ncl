@@ -12,17 +12,6 @@ let media = tap.custom.media in
 let me = tap.custom.media in
 let XXXX = tap.none & hold.none in
 
-let mod_ = fun K => let K = fun mod => K { mods."%{mod}" = true } in {
-  lctl = K "left_ctrl",
-  lsft = K "left_shift",
-  lalt = K "left_alt",
-  lgui = K "left_gui",
-  rctl = K "right_ctrl",
-  rsft = K "right_shift",
-  ralt = K "right_alt",
-  rgui = K "right_gui",
-} in
-
 let ki = {
   hp = { decision = 'hold, trigger_on = 'press },
   tp = { decision = 'tap, trigger_on = 'press },
@@ -136,6 +125,14 @@ let cu = {
   COPY = md.lctl & kc.INS, # md.lctl & kc.C,
   PSTE = md.lsft & kc.INS, # md.lctl & kc.V,
   CUT  = md.lctl & kc.X,
+  AE   = md.ralt & kc.Q,
+  UE   = md.ralt & kc.Y,
+  OE   = md.ralt & kc.P, 
+  SS   = md.ralt & kc.S,
+  DEG  = md.ralt & ks.LABK,
+  MU   = md.ralt & kc.M,
+  H2   = md.ralt & kc.N2,
+  H3   = md.ralt & kc.N3,
 } in
 
 let combos_base = [
