@@ -162,7 +162,7 @@ let combos_base = [
     ] @ combos_base,
     # NAV
     [
-      XXXX,    kc.SLSH, kc.EQL,  kc.BSLS, XXXX,          XXXX,    kc.PGDN, kc.UP,   kc.PGUP,  XXXX,
+      XXXX,    kc.SLSH, kc.EQL,  kc.BSLS, XXXX,          XXXX,    cu.OE, kc.UP,   kc.PGUP,  XXXX,
       ks.AMPR, ks.EXLM, ks.PLUS, ks.UNDS, kc.GRV,        kc.HOME, kc.LEFT, kc.DOWN, kc.RGHT,  kc.END,
       ks.PIPE, ks.QUES, kc.MINS, ks.ASTR, ks.HASH,       XXXX,    XXXX,    XXXX,  XXXX, XXXX,
        tm.lctl, kc.BSPC, lt 1, thumb 0,    thumb 1, tm.ralt, kc.DEL,  tm.rsft
