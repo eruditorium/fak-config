@@ -51,7 +51,7 @@ let layouts = {
 let make_hrm = fun key_idx =>
   let htb_hrm_base = fun eager => {
     timeout_ms = 180,
-    #quick_tap_ms = 100,
+    quick_tap_ms = 100,
     #quick_tap_interrupt_ms = 500,
     #global_quick_tap_ms = 80,
     eager_decision = eager,
@@ -127,14 +127,14 @@ let cu = {
   COPY = md.lctl & kc.INS, # md.lctl & kc.C,
   PSTE = md.lsft & kc.INS, # md.lctl & kc.V,
   CUT  = md.lctl & kc.X,
-  AE   = md.ralt & kc.Q,
-  UE   = md.ralt & kc.Y,
-  OE   = md.ralt & kc.P, 
-  SS   = md.ralt & kc.S,
-  DEG  = md.ralt & ks.LABK,
-  MU   = md.ralt & kc.M,
-  H2   = md.ralt & kc.N2,
-  H3   = md.ralt & kc.N3,
+  AE   = tm.ralt & kc.Q,
+  UE   = tm.ralt & kc.Y,
+  OE   = tm.ralt & kc.P, 
+  SS   = tm.ralt & kc.S,
+  DEG  = tm.ralt & ks.LABK,
+  MU   = tm.ralt & kc.M,
+  H2   = tm.ralt & kc.N2,
+  H3   = tm.ralt & kc.N3,
 } in
 
 
@@ -152,21 +152,28 @@ let combos_base = [
       base 0,  base 1,  base 2,  base 3,  base 4,     base 5,  base 6,  base 7,  base 8,  base 9,
       base 10, base 11, base 12, base 13, base 14,    base 15, base 16, base 17, base 18, base 19,
       base 20, base 21, base 22, base 23, base 24,    base 25, base 26, base 27, base 28, base 29,
-                  md.lctl, lt 1, kc.BSPC, thumb 0,    thumb 1, kc.DEL,  md.ralt, md.rsft
+                  tm.lctl, lt 1, kc.BSPC, thumb 0,    thumb 1, kc.DEL,  tm.ralt, tm.rsft
     ] @ combos_base,
-    # SYM NUM
+    # NUM
     [
       kc.INS,   kc.DEL,  kc.UP,  kc.HOME,  kc.PGUP,       ks.ASTR, kc.N7,   kc.N8,  kc.N9,  ks.PLUS,
       kc.TAB,   kc.RGHT, kc.DOWN,kc.LEFT,  fak.BOOT,      kc.SLSH, kc.N4,   kc.N5,  kc.N6,  kc.MINS,
       tl.DF 3,  XXXX,    XXXX,   kc.END,   kc.PGDN,       kc.DOT,  kc.N1,   kc.N2,  kc.N3,  kc.EQL,
-                      md.lctl, lt 1, kc.BSPC, thumb 0,    thumb 1, kc.N0,   kc.DEL, md.rsft
+                tm.lctl, lt 2,   kc.BSPC,  thumb 0,       thumb 1, kc.N0,   kc.DEL, tm.rsft
     ] @ combos_base,
-    # NAV
+    # SYM
     [
       ks.EXLM, ks.AT,   ks.HASH, ks.DLR,  ks.PERC,       ks.CIRC,  cu.UE,   ks.AMPR,cu.OE,  cu.DEG,
       cu.AE,   cu.SS,   XXXX,    XXXX,    XXXX,          kc.RGHT,  kc.DOWN, kc.UP,  kc.LEFT,cu.MU,
       XXXX,    XXXX,    XXXX,    XXXX,    XXXX,          kc.BSLS,  ks.PIPE, cu.H2,  cu.H3,  XXXX,
-                  md.lctl, lt 1, kc.BSPC, thumb 0,       thumb 1, md.ralt, kc.DEL,  md.rsft
+               tm.lctl, lt 2,    kc.BSPC, thumb 0,       thumb 1,  kc.DEL,  tm.ralt, tm.rsft
+    ] @ combos_base,
+    # FUNC
+    [
+      kc.INS,   kc.DEL,  kc.UP,  kc.HOME,  kc.PGUP,       me.VOLU, kc.F7,   kc.F8,  kc.F9,  kc.F10,
+      kc.TAB,   kc.RGHT, kc.DOWN,kc.LEFT,  fak.BOOT,      me.VOLD, kc.F4,   kc.F5,  kc.F6,  kc.F11,
+      tl.DF 3,  XXXX,    XXXX,   kc.END,   kc.PGDN,       me.MUTE, kc.F1,   kc.F2,  kc.F3,  kc.F12,
+                tm.lctl, lt 2,   kc.BSPC,  thumb 0,       thumb 1, kc.DEL,  tm.ralt,tm.rsft
     ] @ combos_base,
     # ALPHAS APTMAK
     let base_a = fun key_idx => (alphas layouts.APTMAK) |> std.array.at key_idx in
@@ -174,7 +181,7 @@ let combos_base = [
       base_a 0,  base_a 1,  base_a 2,  base_a 3,  base_a 4,     base_a 5,  base_a 6,  base_a 7,  base_a 8,  base_a 9,
       base_a 10, base_a 11, base_a 12, base_a 13, base_a 14,    base_a 15, base_a 16, base_a 17, base_a 18, base_a 19,
       base_a 20, base_a 21, base_a 22, base_a 23, base_a 24,    base_a 25, base_a 26, base_a 27, base_a 28, base_a 29,
-      media.VOLD, media.MUTE, media.VOLU, thumb 0,    thumb 2, media.PREV, tap.layer.DF 0, media.NEXT
+      tm.lctl, lt 2, kc.BSPC, thumb 0,    thumb 1, kc.DEL,  tm.ralt, tm.rsft
     ] @ combos_base,
   ]
 }
