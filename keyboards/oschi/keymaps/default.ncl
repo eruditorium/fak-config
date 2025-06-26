@@ -25,17 +25,18 @@ let virtual_keys' = [
 	# LEFT
 	combo.make cto [ 1,  2], # TAB,
 	combo.make cto [ 0,  1], # ESC,
-	combo.make cto [ 1, 11], # LCBR
-	combo.make cto [ 2, 12], # LBRC
-	combo.make cto [ 3, 13], # LPRN
-	combo.make cto [22, 23], # V   
-	combo.make cto [ 2,  3], # Q   
+	combo.make cto [ 3,  4], # LCBR {
+	combo.make cto [13, 14], # LBRC [
+	combo.make cto [23, 24], # LPRN (
+	combo.make cto [12, 13], # -   
+	combo.make cto [22, 23], # DQT
     #  RIGHT
-	combo.make cto [ 7,  8], # BSPC
-	combo.make cto [ 6, 16], # RPRN
-	combo.make cto [ 7, 17], # RBRC
-	combo.make cto [ 8, 18], # RCBR
-  combo.make cto [27, 28]  # ENT
+	combo.make cto [18, 19], # =
+	combo.make cto [25, 26], # RPRN )
+	combo.make cto [15, 16], # RBRC ]
+	combo.make cto [ 5,  6], # RCBR }
+	combo.make cto [16, 17], # _
+	combo.make cto [26, 27]  # QT
 	] in
 	
 let virtual_key_count = std.array.length virtual_keys' in
@@ -136,8 +137,8 @@ let cu = {
 } in
 
 let combos_base = [
-  kc.TAB, kc.ESC, ks.LCBR, kc.LBRC, ks.LPRN, kc.V, kc.Q,
-  kc.BSPC, ks.RPRN, kc.RBRC, ks.RCBR, kc.ENT
+  kc.TAB, kc.ESC, ks.LCBR, kc.LBRC, ks.LPRN, kc.MINS, ks.DQUO,
+  kc.EQL, ks.RPRN, kc.RBRC, ks.RCBR, ks.UNDS, kc.QUOTE
 ] in
 
 {
