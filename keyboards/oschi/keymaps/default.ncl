@@ -165,7 +165,7 @@ let combos_base = [
       ks.EXLM, ks.AT,   ks.HASH, ks.DLR,  ks.PERC,       ks.CIRC,  cu.UE,   ks.AMPR,cu.OE,  cu.DEG,
       cu.AE,   cu.SS,   XXXX,    XXXX,    XXXX,          kc.RGHT,  kc.DOWN, kc.UP,  kc.LEFT,cu.MU,
       XXXX,    XXXX,    XXXX,    XXXX,    XXXX,          kc.BSLS,  ks.PIPE, cu.H2,  cu.H3,  XXXX,
-               tm.lctl, lt 2,    kc.BSPC, thumb 0,       thumb 1,  kc.DEL,  tm.ralt,kc.DEL, tm.rsft
+               tm.lctl, lt 2,    kc.BSPC, thumb 0,       thumb 1,  kc.DEL,  tm.ralt, tm.rsft
     ] @ combos_base,
     # FUNC
     [
