@@ -127,14 +127,14 @@ let cu = {
   COPY = md.lctl & kc.INS, # md.lctl & kc.C,
   PSTE = md.lsft & kc.INS, # md.lctl & kc.V,
   CUT  = md.lctl & kc.X,
-  AE   = md.ralt & kc.Q,
-  UE   = md.ralt & kc.Y,
-  OE   = md.ralt & kc.P, 
-  SS   = md.ralt & kc.S,
-  DEG  = md.ralt & ks.LABK,
-  MU   = md.ralt & kc.M,
-  H2   = md.ralt & kc.N2,
-  H3   = md.ralt & kc.N3,
+  AE   = tm.ralt & kc.Q,
+  UE   = tm.ralt & kc.Y,
+  OE   = tm.ralt & kc.P, 
+  SS   = tm.ralt & kc.S,
+  DEG  = tm.ralt & ks.LABK,
+  MU   = tm.ralt & kc.M,
+  H2   = tm.ralt & kc.N2,
+  H3   = tm.ralt & kc.N3,
 } in
 
 let combos_base = [
