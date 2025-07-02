@@ -62,7 +62,7 @@ let word_select = macro.make [
 
 let line_select = macro.make [
   macro.tap kc.HOME,
-  macro.mod md.Shift,
+  macro.press md.Shift,
   macro.tap kc.END,
   macro.release md.Shift,
 ] in
