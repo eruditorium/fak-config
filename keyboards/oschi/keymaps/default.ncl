@@ -190,7 +190,7 @@ let combos_base = [
     [
       kc.INS,   kc.DEL,  kc.UP,  kc.HOME,  kc.PGUP,       me.VOLU, kc.F7,   kc.F8,  kc.F9,  kc.F10,
       kc.TAB,   kc.RGHT, kc.DOWN,kc.LEFT,  fak.BOOT,      me.VOLD, kc.F4,   kc.F5,  kc.F6,  kc.F11,
-      tl.DF 3,  XXXX,    XXXX,   kc.END,   kc.PGDN,       me.MUTE, kc.F1,   kc.F2,  kc.F3,  kc.F12,
+      tl.DF 3,  kc.LCAP, kc.LNUM,kc.END,   kc.PGDN,       me.MUTE, kc.F1,   kc.F2,  kc.F3,  kc.F12,
                 tm.lctl, lt 2,   kc.BSPC,  thumb 0,       thumb 1, kc.DEL,  tm.ralt,tm.rsft
     ] @ combos_base,
     # ALPHAS APTMAK
