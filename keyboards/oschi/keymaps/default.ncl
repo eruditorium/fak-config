@@ -36,7 +36,9 @@ let virtual_keys' = [
 	combo.make cto [15, 16], # RBRC ]
 	combo.make cto [ 5,  6], # RCBR }
 	combo.make cto [16, 17], # _
-	combo.make cto [26, 27]  # QT
+	combo.make cto [26, 27], # QT
+  combo.make cto [8, 9], # BACKSPACE
+  combo.make cto [18, 19] # EQUAL
 	] in
 	
 let virtual_key_count = std.array.length virtual_keys' in
@@ -47,6 +49,24 @@ let layouts = {
   APTMAK  = "QWFP  LUY'RSTHBJNAIOZCGDKXM,.;",  
   QWERTY  = "QWERTYUIOPASDFGHJKL;ZXCVBNM,./",
 } in
+
+# Macro for word selection
+# Ctrl+Right, Ctrl+Left, Ctrl+Shift+Right
+
+let word_select = macro.make [
+  macro.press md.lctl,
+  macro.tap kc.RGHT,
+  macro.tap kc.LEFT,
+  macro.tap (kc.RGHT & tm.lsft),
+  macro.release md.lctl,
+] in
+
+let line_select = macro.make [
+  macro.tap kc.HOME,
+  macro.mod md.Shift,
+  macro.tap kc.END,
+  macro.release md.Shift,
+] in
 
 let make_hrm = fun key_idx =>
   let htb_hrm_base = fun eager => {
@@ -139,7 +159,7 @@ let cu = {
 
 let combos_base = [
   kc.TAB, kc.ESC, ks.LCBR, kc.LBRC, ks.LPRN, kc.MINS, ks.DQUO,
-  kc.EQL, ks.RPRN, kc.RBRC, ks.RCBR, ks.UNDS, kc.QUOTE
+  kc.EQL, ks.RPRN, kc.RBRC, ks.RCBR, ks.UNDS, kc.QUOTE, kc.BACKSPACE, kc.EQUAL
 ] in
 
 {
@@ -155,10 +175,10 @@ let combos_base = [
     ] @ combos_base,
     # NUM
     [
-      kc.INS,   kc.DEL,  kc.UP,  kc.HOME,  kc.PGUP,       ks.ASTR, kc.N7,   kc.N8,  kc.N9,  ks.PLUS,
-      kc.TAB,   kc.RGHT, kc.DOWN,kc.LEFT,  fak.BOOT,      kc.SLSH, kc.N4,   kc.N5,  kc.N6,  kc.MINS,
-      tl.DF 3,  XXXX,    XXXX,   kc.END,   kc.PGDN,       kc.DOT,  kc.N1,   kc.N2,  kc.N3,  kc.EQL,
-                tm.lctl, lt 2,   kc.BSPC,  thumb 0,       thumb 1, kc.N0,   kc.DEL, tm.rsft
+      kc.INS,   kc.HOME,  kc.UP,  kc.HOME,  kc.PGUP,       ks.ASTR, kc.N7,   kc.N8,  kc.N9,  ks.PLUS,
+      kc.TAB,   kc.LEFT, kc.DOWN,kc.RGHT,  fak.BOOT,      kc.SLSH, kc.N4,   kc.N5,  kc.N6,  kc.MINS,
+      tl.DF 3,  kc.END,    XXXX,   kc.END,   kc.PGDN,       kc.DOT,  kc.N1,   kc.N2,  kc.N3,  kc.EQL,
+                tm.lctl, lt 2,   kc.BSPC,  thumb 0,       thumb 1, kc.N0,   word_select, tm.rsft
     ] @ combos_base,
     # SYM
     [
