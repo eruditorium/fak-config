@@ -62,9 +62,9 @@ let word_select = macro.make [
 
 let line_select = macro.make [
   macro.tap kc.HOME,
-  macro.press md.Shift,
+  macro.press md.lsft,
   macro.tap kc.END,
-  macro.release md.Shift,
+  macro.release md.lsft,
 ] in
 
 let make_hrm = fun key_idx =>
