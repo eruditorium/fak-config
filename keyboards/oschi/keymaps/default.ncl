@@ -37,8 +37,7 @@ let virtual_keys' = [
 	combo.make cto [ 5,  6], # RCBR }
 	combo.make cto [16, 17], # _
 	combo.make cto [26, 27], # QT
-  combo.make cto [8, 9], # BACKSPACE
-  combo.make cto [18, 19] # EQUAL
+  combo.make cto [8, 9] # BACKSPACE
 	] in
 	
 let virtual_key_count = std.array.length virtual_keys' in
@@ -159,7 +158,7 @@ let cu = {
 
 let combos_base = [
   kc.TAB, kc.ESC, ks.LCBR, kc.LBRC, ks.LPRN, kc.MINS, ks.DQUO,
-  kc.EQL, ks.RPRN, kc.RBRC, ks.RCBR, ks.UNDS, kc.QUOTE, kc.BACKSPACE, kc.EQUAL
+  kc.EQL, ks.RPRN, kc.RBRC, ks.RCBR, ks.UNDS, kc.QUOTE, kc.BACKSPACE
 ] in
 
 {
